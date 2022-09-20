@@ -1587,7 +1587,7 @@ class ModelAdmin(BaseModelAdmin):
 
             if not select_across:
                 # Perform the action only on the selected objects
-                queryset = queryset.filter(pk__in=selected)
+                queryset = self.get_queryset(None).filter(pk__in=selected)
 
             response = func(self, request, queryset)
 
